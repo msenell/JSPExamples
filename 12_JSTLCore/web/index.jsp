@@ -47,5 +47,29 @@
                 <p>Maaş Asgari ücretten yüksek.</p>
             </c:otherwise>
         </c:choose>
+        <ul>
+            <c:forEach var="i" begin="1" end="5">
+                <li>Item <c:out value="${i}" /></li>
+            </c:forEach>
+        </ul>
+        
+        <ul>
+            <c:forTokens var="name" items="Mustafa-Mehmet-Dilara" delims="-">
+                <li><c:out value="${name}" /></li>
+            </c:forTokens>
+        </ul>
+        <c:url value="/index.jsp" var="indexURL">
+            <c:param name="id" value="111" />
+            <c:param name="name" value="mustafa" />
+        </c:url>
+        <c:out value="${indexURL}" />
+        
+        <c:set var="url" scope="request" value="0" />
+        <c:if test="${url < 1}">
+            <c:redirect url="https://www.facebook.com/" />
+        </c:if>
+        <c:if test="${url >= 1}">
+            <c:redirect url="https://twitter.com/" />
+        </c:if>
     </body>
 </html>
